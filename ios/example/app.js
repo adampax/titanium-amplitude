@@ -35,6 +35,12 @@ amplitude.initialize('YOUR_API_KEY');
 
 amplitude.setUserId('user123');
 
+//set properties associated with the user
+amplitude.setUserProperties({
+	membership:'premium',
+	shirtColor: 'red'
+});
+
 
 //events can be logged with or without additional data
 //note that Amplitude already tracks app version, phone model, operating system version, and carrier information

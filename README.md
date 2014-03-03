@@ -34,6 +34,9 @@ See full example in the `example` folder.
 #### setUserId(string)
 * Use this if you want to associate your event data with a logged in user
 
+#### setUserProperties(obj)
+* pass and object with custom properties for the logged user
+
 ## About
 * Me: [Adam Paxton](http://adampaxton.com) 
 * Twitter: [@adampax](http://twitter.com/adampax)
