@@ -103,7 +103,6 @@
 -(void)logEvent:(id)args
 {
     ENSURE_UI_THREAD_1_ARG(args);
-    //ENSURE_UI_THREAD(logEvent, args);
 	NSString *event = [args objectAtIndex:0];
 	NSDictionary *props = nil;
 	if ([args count] > 1)

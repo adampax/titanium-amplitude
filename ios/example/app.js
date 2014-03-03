@@ -22,7 +22,7 @@ if (Ti.Geolocation.locationServicesEnabled) {
 		if (e.error) {
 			Ti.API.error('Error: ' + e.error);
 		} else {
-			Ti.API.info(e.coords);
+			Ti.API.info('location set.');
 		}
 	});
 }
