@@ -120,6 +120,15 @@
 	}
 }
 
+-(void)logRevenue:(id)args
+{
+    ENSURE_UI_THREAD_1_ARG(args);
+    
+    double revenue = [TiUtils doubleValue:[args objectAtIndex:0]];
+    
+    [Amplitude logRevenue:NUMDOUBLE(revenue)];
+}
+
 -(void)setUserProperties:(id)args{
     ENSURE_SINGLE_ARG(args, NSDictionary);
     [Amplitude setUserProperties:args];
