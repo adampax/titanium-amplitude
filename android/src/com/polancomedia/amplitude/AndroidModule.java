@@ -75,4 +75,9 @@ public class AndroidModule extends KrollModule {
 			Amplitude.logEvent(event, jObj);
 		}
 	}
+	
+	@Kroll.method
+	public void logRevenue(Object[] args) {
+		Amplitude.logRevenue(TiConvert.toDouble(args[0]));
+	}
 }
