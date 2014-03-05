@@ -19,61 +19,52 @@ import org.appcelerator.titanium.util.TiConvert;
 import org.appcelerator.kroll.common.Log;
 import org.json.JSONObject;
 
-@Kroll.module(name="Android", id="com.polancomedia.amplitude")
-public class AndroidModule extends KrollModule
-{
+@Kroll.module(name = "Android", id = "com.polancomedia.amplitude")
+public class AndroidModule extends KrollModule {
 
 	// Standard Debugging variables
 	private static final String TAG = "AmplitudeModule";
 
 	// You can define constants with @Kroll.constant, for example:
 	// @Kroll.constant public static final String EXTERNAL_NAME = value;
-	
-	public AndroidModule()
-	{
+
+	public AndroidModule() {
 		super();
 	}
 
 	@Kroll.onAppCreate
-	public static void onAppCreate(TiApplication app)
-	{
+	public static void onAppCreate(TiApplication app) {
 		Log.d(TAG, "inside onAppCreate");
-		// put module init code that needs to run when the application is created
+		// put module init code that needs to run when the application is
+		// created
 	}
 
 	// Methods
 	@Kroll.method
-	public void initialize(String token)
-	{
+	public void initialize(String token) {
 		Log.d(TAG, "calling initialize");
-		//Amplitude.initialize(TiApplication.getInstance(), token);
+		// Amplitude.initialize(TiApplication.getInstance(), token);
 		Amplitude.initialize(getActivity(), token);
 	}
-	
+
 	@Kroll.method
-	public void setUserId(String userId)
-	{
+	public void setUserId(String userId) {
 		Log.d(TAG, "setting userId");
 		Amplitude.setUserId(userId);
 	}
-	
+
 	@Kroll.method
-	public void logEvent(Object[] args)
-	{
+	public void logEvent(Object[] args) {
 		String event = TiConvert.toString(args[0]);
-		
-		if(args.length < 2)
-		{
+
+		if (args.length < 2) {
 			Log.d(TAG, "logging event");
-			Amplitude.logEvent(event);	
-		} else 
-		{
+			Amplitude.logEvent(event);
+		} else {
 			JSONObject jObj = TiConvert.toJSON((HashMap<String, Object>) args[1]);
-			
+
 			Log.d(TAG, "logging event with properties");
 			Amplitude.logEvent(event, jObj);
 		}
-		
 	}
 }
-
