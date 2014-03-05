@@ -1,11 +1,14 @@
 ## Titanium Amplitude
 
-### Compiled Module
+Wrapper for Amplitude Analytics SDKs.
+
+### Compiled Modules
+* [Android](https://github.com/adampax/titanium-amplitude/tree/master/android/dist)
 * [iOS](https://github.com/adampax/titanium-amplitude/tree/master/ios/dist)
 
 ### About
 
-This is a wrapper for the [Amplitude iOS SDK](https://github.com/amplitude/Amplitude-iOS). Get more info in the [Amplitude Docs](https://amplitude.com/docs).
+This is a wrapper for the Amplitude [iOS](https://github.com/amplitude/Amplitude-iOS) and [Android](https://github.com/amplitude/Amplitude-Android) SDKs. Get more info in the [Amplitude Docs](https://amplitude.com/docs).
 
 ###
 
