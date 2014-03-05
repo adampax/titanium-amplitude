@@ -52,6 +52,14 @@ public class AndroidModule extends KrollModule {
 		Log.d(TAG, "setting userId");
 		Amplitude.setUserId(userId);
 	}
+	
+	@Kroll.method
+	public void setUserProperties(HashMap args) {
+		Log.d(TAG, "setting userIdProperties");
+		JSONObject jObj = TiConvert.toJSON(args);
+
+		Amplitude.setGlobalUserProperties(jObj);		
+	}
 
 	@Kroll.method
 	public void logEvent(Object[] args) {

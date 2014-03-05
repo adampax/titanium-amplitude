@@ -14,6 +14,12 @@ var amplitude = require('com.polancomedia.amplitude');
 
 amplitude.setUserId('androidUser');
 
+//set properties associated with the user
+amplitude.setUserProperties({
+	membership:'premium',
+	shirtColor: 'green'
+});
+
 amplitude.logEvent('android_event');
 
 amplitude.logEvent('event_with_properties', {hello: 'android'});
