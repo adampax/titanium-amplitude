@@ -8,11 +8,14 @@
  */
 package com.polancomedia.amplitude;
 
+import java.util.HashMap;
+
 import com.amplitude.api.Amplitude;
 
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.titanium.TiApplication;
+import org.appcelerator.titanium.util.TiConvert;
 import org.appcelerator.kroll.common.Log;
 import org.json.JSONObject;
 
@@ -55,32 +58,22 @@ public class AndroidModule extends KrollModule
 	}
 	
 	@Kroll.method
-	public void logEvent(String event)
+	public void logEvent(Object[] args)
 	{
-		Log.d(TAG, "logging event");
-		Amplitude.logEvent(event);
+		String event = TiConvert.toString(args[0]);
+		
+		if(args.length < 2)
+		{
+			Log.d(TAG, "logging event");
+			Amplitude.logEvent(event);	
+		} else 
+		{
+			JSONObject jObj = TiConvert.toJSON((HashMap<String, Object>) args[1]);
+			
+			Log.d(TAG, "logging event with properties");
+			Amplitude.logEvent(event, jObj);
+		}
+		
 	}
-	
-	@Kroll.method
-	public String example()
-	{
-		Log.d(TAG, "example called");
-		return "hello world";
-	}
-	
-	// Properties
-	@Kroll.getProperty
-	public String getExampleProp()
-	{
-		Log.d(TAG, "get example property");
-		return "hello world";
-	}
-	
-	
-	@Kroll.setProperty
-	public void setExampleProp(String value) {
-		Log.d(TAG, "set example property: " + value);
-	}
-
 }
 

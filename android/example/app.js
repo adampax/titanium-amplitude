@@ -15,3 +15,5 @@ var amplitude = require('com.polancomedia.amplitude');
 amplitude.setUserId('androidUser');
 
 amplitude.logEvent('android_event');
+
+amplitude.logEvent('event_with_properties', {hello: 'android'});
