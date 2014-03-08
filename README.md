@@ -49,9 +49,9 @@ To track sessions in Android, the following must be added to every heavyweight w
 
 Get more info on heavyweight windows and activities [here](http://docs.appcelerator.com/titanium/latest/#!/api/Titanium.UI.Window). Scroll down to 'Android Platform Notes'.
 
-```
+```javascript
 if(Ti.Platform.osname === 'android'){
-	win.addEventListener('open', function(){
+	myWin.addEventListener('open', function(){
 		var activity = win.activity;
 		if(activity){
 			activity.addEventListener('resume', function(){
