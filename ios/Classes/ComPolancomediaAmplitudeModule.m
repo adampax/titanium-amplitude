@@ -133,6 +133,15 @@
     [Amplitude setUserProperties:args];
 }
 
+//Stub for Android-only methods in case someone calls it.
+-(void)startSession:(id)args
+{
+    NSLog(@"[WARN] Amplitude startSession() not needed on iOS, ignoring call");
+}
 
+-(void)endSession:(id)args
+{
+    NSLog(@"[WARN] Amplitude endSession() not needed on iOS, ignoring call");
+}
 
 @end
