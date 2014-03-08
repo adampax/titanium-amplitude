@@ -43,6 +43,37 @@ See full example in the `example` folder.
 #### setUserProperties(obj)
 * pass an object with custom properties for the logged user
 
+### Session tracking in Android
+
+To track sessions in Android, the following must be added to every heavyweight window opened in the app. Note that starting in Ti SDK 3.2.0, every window is a heavyweight window.
+
+Get more info on heavyweight windows and activities [here](http://docs.appcelerator.com/titanium/latest/#!/api/Titanium.UI.Window). Scroll down to 'Android Platform Notes'.
+
+```
+if(Ti.Platform.osname === 'android'){
+	win.addEventListener('open', function(){
+		var activity = win.activity;
+		if(activity){
+			activity.addEventListener('resume', function(){
+				amplitude.startSession();
+			});
+			
+			activity.addEventListener('pause', function(){
+				amplitude.endSession();
+			});
+		}	
+	});
+}
+```
+
+#### startSession
+* Called on and window activitie's `resume` event.
+* Android only
+
+#### endSession
+* Called on and window activitie's `pause` event.
+* Android only
+
 ## About
 * Me: [Adam Paxton](http://adampaxton.com) 
 * Twitter: [@adampax](http://twitter.com/adampax)
