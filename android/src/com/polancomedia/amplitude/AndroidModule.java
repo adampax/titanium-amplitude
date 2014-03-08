@@ -80,4 +80,14 @@ public class AndroidModule extends KrollModule {
 	public void logRevenue(Object[] args) {
 		Amplitude.logRevenue(TiConvert.toDouble(args[0]));
 	}
+	
+	@Kroll.method
+	public void startSession() {
+		Amplitude.startSession();
+	}
+	
+	@Kroll.method
+	public void endSession() {
+		Amplitude.endSession();
+	}	
 }
